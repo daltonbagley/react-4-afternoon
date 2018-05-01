@@ -14,12 +14,13 @@ export default class ClassList extends Component {
 componentDidMount(){
   axios.get(`http://localhost:3005/students?class=${this.props.match.params.class}`).then(res=>{
     this.setState({students: res.data})
-    console.log(this.state.students)
   })
 }
 
   render() {
     return (
+      <div>
+        <Link to="/">Back</Link>
       <div className="box">
         <h1>{this.props.match.params.class}</h1>
         <h2>ClassList:</h2>
@@ -28,6 +29,7 @@ componentDidMount(){
         <h3 >{ student.first_name } { student.last_name }</h3>
       </Link>
     ))}
+      </div>
       </div>
     )
   }
